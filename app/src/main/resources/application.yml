@@ -1,0 +1,10 @@
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+      firstName: Admin
+    filter.create: All tasks
+    database.type: h2
+    defaultSerializationFormat: application/json
+    history-level: full

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_18a4rla" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.16.1">
+  <bpmn:process id="hello" isExecutable="true">
+    <bpmn:endEvent id="EndEvent_1f2shlo">
+      <bpmn:incoming>SequenceFlow_0fv13vp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0fv13vp" sourceRef="tsk_srv_hello" targetRef="EndEvent_1f2shlo" />
+    <bpmn:sequenceFlow id="SequenceFlow_12nffvb" sourceRef="StartEvent_1" targetRef="tsk_srv_hello" />
+    <bpmn:serviceTask id="tsk_srv_hello" name="Say Hello" camunda:delegateExpression="${helloTask}">
+      <bpmn:incoming>SequenceFlow_12nffvb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0fv13vp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_12nffvb</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="Message_0vmopq4" />
+    </bpmn:startEvent>
+  </bpmn:process>
+  <bpmn:message id="Message_0vmopq4" name="START" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="hello">
+      <bpmndi:BPMNShape id="EndEvent_1f2shlo_di" bpmnElement="EndEvent_1f2shlo">
+        <dc:Bounds x="414" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fv13vp_di" bpmnElement="SequenceFlow_0fv13vp">
+        <di:waypoint x="364" y="120" />
+        <di:waypoint x="414" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_12nffvb_di" bpmnElement="SequenceFlow_12nffvb">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="264" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0ayp0w5_di" bpmnElement="tsk_srv_hello">
+        <dc:Bounds x="264" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_09u1bmo_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
